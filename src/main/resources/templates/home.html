@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport">
+    <title>Home</title>
+</head>
+<body>
+<form th:action="@{/home}" method="post" th:object="${user}">
+    <h3 th:text="성공"></h3>
+</form>
+</body>
+</html>
