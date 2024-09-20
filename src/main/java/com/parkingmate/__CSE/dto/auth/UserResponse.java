@@ -7,6 +7,7 @@ public record UserResponse(
         String username,
         String telephone
 ) {
+
     // User 엔티티로부터 DTO를 생성하는 팩토리 메서드
     public static UserResponse from(User user) {
         return new UserResponse(

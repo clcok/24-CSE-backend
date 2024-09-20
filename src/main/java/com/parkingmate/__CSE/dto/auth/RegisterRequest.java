@@ -7,4 +7,7 @@ public record RegisterRequest(
         String password,
         String telephone
 ) {
+    public User createUser(){
+        return new User(this.username(),this.password(),this.telephone());
+    }
 }

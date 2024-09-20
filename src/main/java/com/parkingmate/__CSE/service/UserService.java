@@ -18,7 +18,6 @@ public class UserService {
             throw new RuntimeException("이미 존재하는 사용자입니다.");
         }
         User user = request.createUser();
-        System.out.println(user.getUsername());
         return userRepository.save(user);
     }
 
