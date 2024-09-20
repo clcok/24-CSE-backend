@@ -14,7 +14,7 @@ public class User {
 
 
     //공통 필드
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true) //id중복방지용 unique
     private String username;
 
     @Column(nullable = false)
@@ -33,19 +33,13 @@ public class User {
     private Integer PricePer30Min;
     private boolean isAvaliable; //차량 지금 가능한지
 
-    public User(String username, String password) {
+    public User(String username, String password, String telephone) {
         this.username = username;
         this.password = password;
-    }
-
-
-    // 일반 사용자 추가 정보 설정 메서드
-    public void setUserInfo(String carNum, String telephone) {
-        this.carNum = carNum;
         this.telephone = telephone;
     }
 
-}
 
 }
+
 

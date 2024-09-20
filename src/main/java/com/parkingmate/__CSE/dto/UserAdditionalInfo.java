@@ -1,4 +1,4 @@
-package com.parkingmate.__CSE.controller.dto;
+package com.parkingmate.__CSE.dto;
 
 public record UserAdditionalInfo(
         String telephone,

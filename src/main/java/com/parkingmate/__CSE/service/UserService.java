@@ -1,6 +1,6 @@
 package com.parkingmate.__CSE.service;
 
-import com.parkingmate.__CSE.controller.dto.RegisterRequest;
+import com.parkingmate.__CSE.dto.auth.RegisterRequest;
 import com.parkingmate.__CSE.domain.user.User;
 import com.parkingmate.__CSE.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
