@@ -12,7 +12,7 @@ public class ParkingSpace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     @ManyToOne
     private User user;
 
