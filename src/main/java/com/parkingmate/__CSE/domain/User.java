@@ -33,10 +33,9 @@ public class User {
     @Column
     private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
 
-    User(String userName, String password, String name, String car){
+    User(String userName, String password, String name){
         this.userName = userName;
         this.password = password;
         this.name = name;
-        this.car = car;
     }
 }
