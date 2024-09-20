@@ -1,10 +1,10 @@
 package com.parkingmate.__CSE.dto.auth;
 
-import com.parkingmate.__CSE.domain.user.User;
+import com.parkingmate.__CSE.domain.User;
 
 public record UserResponse(
         Long id,
-        String username,
+        String userName,
         String telephone
 ) {
 
@@ -12,7 +12,7 @@ public record UserResponse(
     public static UserResponse from(User user) {
         return new UserResponse(
                 user.getId(),
-                user.getUsername(),
+                user.getUserName(),
                 user.getTelephone()
         );
     }

@@ -26,6 +26,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String name; //닉네임
 
+    @Column(nullable = false, length = 13)
+    private String telephone;
+
     @Column(unique = true)
     private String car; //차량 번호
 
@@ -33,9 +36,10 @@ public class User {
     @Column
     private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
 
-    User(String userName, String password, String name){
+    public User(String userName, String password, String name, String telephone){
         this.userName = userName;
         this.password = password;
         this.name = name;
+        this.telephone = telephone;
     }
 }
