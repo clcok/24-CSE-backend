@@ -41,8 +41,8 @@ public class UserController {
 
     @PostMapping("/login")
     public String login(@ModelAttribute LoginRequest request, HttpSession session) {
-        System.out.println(request.userName()+request.password()+"login");
-        User loginUser = userService.login(request.userName(), request.password());
+        //System.out.println(request.userName()+request.password()+"login");
+        User loginUser = userService.login(request.username(), request.password());
         session.setAttribute("user", loginUser);
         return "redirect:/home";
     }

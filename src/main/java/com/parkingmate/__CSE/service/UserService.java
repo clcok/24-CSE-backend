@@ -14,7 +14,7 @@ public class UserService {
 
     public User register(RegisterRequest request) {
 
-        if(userRepository.findByUsername(request.userName()).isPresent()){
+        if(userRepository.findByUsername(request.username()).isPresent()){
             throw new RuntimeException("이미 존재하는 사용자입니다.");
         }
         User user = request.createUser();
