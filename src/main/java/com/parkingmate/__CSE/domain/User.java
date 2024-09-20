@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @Getter
@@ -23,17 +26,17 @@ public class User {
     @Column(nullable = false, unique = true)
     private String name; //닉네임
 
-    @Column(nullable = false, unique = true)
-    private String email; //이메일
-
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String car; //차량 번호
 
-    User(String userName, String password, String name, String email, String car){
+    @OneToMany
+    @Column
+    private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
+
+    User(String userName, String password, String name, String car){
         this.userName = userName;
         this.password = password;
         this.name = name;
-        this.email = email;
         this.car = car;
     }
 }
