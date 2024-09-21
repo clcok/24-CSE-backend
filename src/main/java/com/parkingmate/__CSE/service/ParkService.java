@@ -20,16 +20,9 @@ import static java.util.stream.Collectors.toList;
 public class ParkService {
 
     @Autowired
-<<<<<<< HEAD
     public ParkRepository parkRepository;
     @Autowired
     public UserRepository userRepository;
-=======
-    private ParkRepository parkRepository;
-    @Autowired
-    private UserRepository userRepository;
-
->>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
 
     @Transactional
     public void enrollParkingSpace(EnrollRequest enrollRequest, HttpSession session){

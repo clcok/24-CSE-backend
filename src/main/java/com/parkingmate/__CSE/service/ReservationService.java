@@ -15,10 +15,7 @@ public class ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
-<<<<<<< HEAD
 
-=======
->>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
     @Autowired
     private ParkRepository parkRepository;
 
@@ -49,7 +46,6 @@ public class ReservationService {
 
         //관계 설정
         //reservation.assignUserAndParkingSpace(user, parkingSpace);
-        System.out.println(reservation);
         //예약 저장
         return reservationRepository.save(reservation);
 

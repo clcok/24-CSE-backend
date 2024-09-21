@@ -17,13 +17,8 @@ public class ParkingSpace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-<<<<<<< HEAD
-    @JoinColumn(nullable = false, name="user_id")
-    @ManyToOne
-=======
     @JoinColumn(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
->>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
     private User user;
 
     @OneToMany(mappedBy = "parkingSpace", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -63,10 +58,7 @@ public class ParkingSpace {
         this.maxCar = enrollRequest.getMaxCar();
         this.price = enrollRequest.getPrice();
         this.explain = enrollRequest.getExplain();
-<<<<<<< HEAD
         this.useCar = 0;
-        this.isAvailable = true;
-=======
         this.isAvailable = true;
     }
 
@@ -74,7 +66,6 @@ public class ParkingSpace {
     public void assignUser(User user) {
         this.user = user;
         user.getParkingSpaceList().add(this);
->>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
     }
 
 }
