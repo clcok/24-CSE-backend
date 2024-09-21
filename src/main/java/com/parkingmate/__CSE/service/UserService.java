@@ -18,9 +18,10 @@ public class UserService {
 
     public User register(RegisterRequest request) {
 
-        if(userRepository.findByUserName(request.userName()).isPresent()){
-            throw new RuntimeException("이미 존재하는 사용자입니다.");
+        if(userRepository.findByUserNameOrName(request.userName(), request.name()).isPresent()){
+            throw new RuntimeException("이미 존재하는 사용자이거나 닉네임이 중복됩니다.");
         }
+
         User user = request.createUser();
         return userRepository.save(user);
     }

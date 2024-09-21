@@ -33,6 +33,9 @@ public class User {
     @Column(unique = true)
     private String car; //차량 번호
 
+    @Column
+    private Integer chargeAmount;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @Column
     private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
@@ -47,6 +50,7 @@ public class User {
         this.password = password;
         this.name = name;
         this.telephone = telephone;
+        this.chargeAmount = 0;
     }
 
 }
