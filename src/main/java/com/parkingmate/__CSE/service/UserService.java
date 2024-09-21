@@ -30,7 +30,15 @@ public class UserService {
                 .filter(user -> user.getPassword().equals(password))
                 .orElseThrow(() -> new RuntimeException("아이디 또는 비밀번호가 올바르지 않습니다."));
     }
-  
+
+    public Boolean carExist(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if (user.getCar() == null)
+            return Boolean.FALSE;
+        else
+            return Boolean.TRUE;
+    }
+
     public void carEnroll(UserCarRequest usercarRequest, HttpSession session){
         User user = (User) session.getAttribute("user");
         user.setCar(usercarRequest.getCar());

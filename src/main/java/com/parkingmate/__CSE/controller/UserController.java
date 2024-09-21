@@ -35,6 +35,11 @@ public class UserController {
         return "home";
     }
 
+    @GetMapping("/car/exist")
+    public Boolean carExist(HttpSession session){
+        return userService.carExist(session);
+    }
+
     @PostMapping("/car/enroll")
     public void carEnroll(@RequestBody UserCarRequest usercarRequest, HttpSession session){
         userService.carEnroll(usercarRequest, session);
