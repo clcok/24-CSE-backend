@@ -13,4 +13,5 @@ import java.util.Optional;
 public interface ParkRepository extends JpaRepository<ParkingSpace,Long> {
     @Query("SELECT ps.user.id FROM ParkingSpace ps WHERE ps.id = :parkingSpaceId")
     Long findUserIdByParkingSpaceId(@Param("parkingSpaceId") Long parkingSpaceId);
+
 }
