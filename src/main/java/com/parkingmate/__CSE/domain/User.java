@@ -33,7 +33,7 @@ public class User {
     @Column(unique = true)
     private String car; //차량 번호
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     @Column
     private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
 
