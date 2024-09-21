@@ -20,17 +20,33 @@ import static java.util.stream.Collectors.toList;
 public class ParkService {
 
     @Autowired
+<<<<<<< HEAD
     public ParkRepository parkRepository;
     @Autowired
     public UserRepository userRepository;
+=======
+    private ParkRepository parkRepository;
+    @Autowired
+    private UserRepository userRepository;
+
+>>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
 
     @Transactional
     public void enrollParkingSpace(EnrollRequest enrollRequest, HttpSession session){
         if(enrollRequest.getName().isBlank()){
             throw new RuntimeException("정보를 다시 입력해주세요.");
         }
-        User user = (User) session.getAttribute("user");
+        User sessionUser = (User) session.getAttribute("user");
+
+        // 영속성 컨텍스트에서 User를 조회
+        User user = userRepository.findById(sessionUser.getId())
+                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+
         ParkingSpace parkingSpace = new ParkingSpace(user, enrollRequest);
+
+        //관계 설정
+        parkingSpace.assignUser(user);
+
         parkRepository.save(parkingSpace);
     }
 
