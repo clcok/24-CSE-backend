@@ -2,29 +2,28 @@ package com.parkingmate.__CSE.controller;
 
 import com.parkingmate.__CSE.domain.User;
 import com.parkingmate.__CSE.dto.request.UserCarRequest;
+import com.parkingmate.__CSE.dto.response.MyPageResponse;
 import com.parkingmate.__CSE.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/users")
+@RestController()
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     // 현재 사용자 정보 조회
-    @GetMapping("/me")
-    public void getCurrentUser(HttpSession session) {
+    @GetMapping("/mypage")
+    public MyPageResponse getCurrentUser(HttpSession session) {
         User user = (User) session.getAttribute("user");
         System.out.println(user);
         if (user == null) {
             throw new RuntimeException("로그인이 필요합니다.");
         }
-        //return new UserResponse(user);
+        return userService.showMyPage(user);
     }
 
     @GetMapping("/home")

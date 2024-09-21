@@ -4,6 +4,7 @@ import com.parkingmate.__CSE.dto.auth.RegisterRequest;
 
 import com.parkingmate.__CSE.domain.User;
 import com.parkingmate.__CSE.dto.request.UserCarRequest;
+import com.parkingmate.__CSE.dto.response.MyPageResponse;
 import com.parkingmate.__CSE.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 
@@ -44,6 +45,17 @@ public class UserService {
         User user = (User) session.getAttribute("user");
         user.setCar(usercarRequest.getCar());
         userRepository.save(user); //setter안쓰고 하는 방법은 없을까.
+    }
+
+    // UserService.java
+    public MyPageResponse showMyPage(User user) {
+        // User 객체의 필드를 개별적으로 전달
+        return new MyPageResponse(
+                user.getUserName(),
+                user.getName(),
+                user.getTelephone(),
+                user.getCar()
+        );
     }
 
 }

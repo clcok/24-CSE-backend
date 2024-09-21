@@ -46,10 +46,10 @@ public class ParkingSpace {
     private Boolean isAvailable; //주차 가능 여부
 
     @Column
-    private String startTime; //예약 시작 시간
+    private Integer startTime; //예약 시작 시간
 
     @Column
-    private String endTime; //예약 끝 시간
+    private Integer endTime; //예약 끝 시간
 
     @Column
     private Double latitude;
@@ -65,6 +65,8 @@ public class ParkingSpace {
         this.price = enrollRequest.getPrice();
         this.explain = enrollRequest.getExplain();
         this.useCar = 0;
+        this.startTime = 0;
+        this.endTime = 24;
         this.isAvailable = true;
     }
 
