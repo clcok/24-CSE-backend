@@ -64,4 +64,17 @@ public class ParkingSpace {
         user.getParkingSpaceList().add(this);
     }
 
+    //maxCar감소 메서드
+    public void minusMaxCar(){
+        this.maxCar--;
+        if(maxCar == 0){
+            isAvailable = false;
+        }
+    }
+
+    //maxCar증가 메서드
+    public void plusMaxCar(){
+        this.maxCar++;
+    }
+
 }

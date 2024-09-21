@@ -29,9 +29,10 @@ public class ReservationService {
                 .orElseThrow(() -> new RuntimeException("주차 공간을 찾을 수 없습니다."));
 
         // 예약 가능 여부 확인 (예: 중복 예약 방지)
-        if (!parkingSpace.getIsAvailable()) { //이걸 array해서 파악해야하는데 일단은 팓단하기위해서 이렇게만
+        if (!parkingSpace.getIsAvailable() && parkingSpace.getMaxCar() <= 0) { //이걸 array해서 파악해야하는데 일단은 팓단하기위해서 이렇게만
             throw new RuntimeException("해당 시간에 예약이 불가능합니다.");
         }
+
 
         // Reservation 객체 생성
         Reservation reservation = new Reservation(
@@ -42,10 +43,13 @@ public class ReservationService {
                 reservationRequest.endTime()
         );
 
+        //parkingSpace의 maxCar만 일단 조정
+
+
 
         //관계 설정
         //reservation.assignUserAndParkingSpace(user, parkingSpace);
-        System.out.println(reservation);
+
         //예약 저장
         return reservationRepository.save(reservation);
 
