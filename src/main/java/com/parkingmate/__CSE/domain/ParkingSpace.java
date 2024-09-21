@@ -4,6 +4,10 @@ import com.parkingmate.__CSE.dto.request.EnrollRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -13,9 +17,17 @@ public class ParkingSpace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(nullable = false)
+<<<<<<< HEAD
+    @JoinColumn(nullable = false, name="user_id")
     @ManyToOne
+=======
+    @JoinColumn(nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+>>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
     private User user;
+
+    @OneToMany(mappedBy = "parkingSpace", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservationList = new ArrayList<>();
 
     @Column(nullable = false)
     private String name; //주차장 이름
@@ -25,6 +37,9 @@ public class ParkingSpace {
 
     @Column(nullable = false)
     private Integer maxCar; //최대 주차 개수
+
+    @Column(nullable = false)
+    private Integer useCar;
 
     @Column(nullable = false)
     private Integer price; //가격
@@ -48,6 +63,18 @@ public class ParkingSpace {
         this.maxCar = enrollRequest.getMaxCar();
         this.price = enrollRequest.getPrice();
         this.explain = enrollRequest.getExplain();
+<<<<<<< HEAD
+        this.useCar = 0;
+        this.isAvailable = true;
+=======
+        this.isAvailable = true;
+    }
+
+    // 관계 설정 메서드
+    public void assignUser(User user) {
+        this.user = user;
+        user.getParkingSpaceList().add(this);
+>>>>>>> bd74cd9ee87ac4777e28a1f4c732fc1163c0f50f
     }
 
 }

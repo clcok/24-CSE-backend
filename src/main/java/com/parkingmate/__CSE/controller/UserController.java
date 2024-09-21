@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/users")
 public class UserController {
 
     @Autowired
@@ -33,6 +33,11 @@ public class UserController {
             return "redirect:/login";
         }
         return "home";
+    }
+
+    @GetMapping("/car/exist")
+    public Boolean carExist(HttpSession session){
+        return userService.carExist(session);
     }
 
     @PostMapping("/car/enroll")
