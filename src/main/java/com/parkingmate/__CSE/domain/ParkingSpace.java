@@ -13,7 +13,7 @@ public class ParkingSpace {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name="user_id")
     @ManyToOne
     private User user;
 
@@ -25,6 +25,9 @@ public class ParkingSpace {
 
     @Column(nullable = false)
     private Integer maxCar; //최대 주차 개수
+
+    @Column(nullable = false)
+    private Integer useCar;
 
     @Column(nullable = false)
     private Integer price; //가격
@@ -48,6 +51,8 @@ public class ParkingSpace {
         this.maxCar = enrollRequest.getMaxCar();
         this.price = enrollRequest.getPrice();
         this.explain = enrollRequest.getExplain();
+        this.useCar = 0;
+        this.isAvailable = true;
     }
 
 }
