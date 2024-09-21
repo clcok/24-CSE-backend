@@ -1,5 +1,6 @@
 package com.parkingmate.__CSE.domain;
 
+import com.parkingmate.__CSE.dto.request.EnrollRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
