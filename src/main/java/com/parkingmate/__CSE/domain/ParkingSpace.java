@@ -68,4 +68,13 @@ public class ParkingSpace {
         user.getParkingSpaceList().add(this);
     }
 
+    public void addUseCar(){
+        if(useCar >= maxCar) {
+            throw new RuntimeException("주차 공간이 부족합니다.");
+        }
+        if(useCar == maxCar - 1){
+            isAvailable = false;
+        }
+        this.useCar++;
+    }
 }

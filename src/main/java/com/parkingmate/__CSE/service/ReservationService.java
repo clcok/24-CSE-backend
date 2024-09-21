@@ -43,6 +43,8 @@ public class ReservationService {
                 reservationRequest.endTime()
         );
 
+        //차량 대수 조정.
+        parkingSpace.addUseCar();
 
         //관계 설정
         //reservation.assignUserAndParkingSpace(user, parkingSpace);

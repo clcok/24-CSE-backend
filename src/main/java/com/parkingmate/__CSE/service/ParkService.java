@@ -52,6 +52,7 @@ public class ParkService {
         Long id = parkRepository.findUserIdByParkingSpaceId(space.getId());
         User user = userRepository.findUserById(id);
         return new AvailableSpaceResponse(
+                space.getId(),
                 user.getName(),
                 space.getName(),
                 space.getMaxCar(),
