@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
     List<Reservation> findByParkingSpaceAndDate(ParkingSpace parkingSpace, String date);
+
+    List<Reservation> findByUserId(Long UserId);
 }
