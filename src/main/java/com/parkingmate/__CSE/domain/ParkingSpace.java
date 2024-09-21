@@ -4,6 +4,7 @@ import com.parkingmate.__CSE.dto.request.EnrollRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,11 @@ public class ParkingSpace {
     private Long id;
 
     @JoinColumn(nullable = false)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @OneToMany(mappedBy = "parkingSpace", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Reservation> reservations = new ArrayList<>();
+    private List<Reservation> reservationList = new ArrayList<>();
 
     @Column(nullable = false)
     private String name; //주차장 이름
@@ -54,6 +55,13 @@ public class ParkingSpace {
         this.maxCar = enrollRequest.getMaxCar();
         this.price = enrollRequest.getPrice();
         this.explain = enrollRequest.getExplain();
+        this.isAvailable = true;
+    }
+
+    // 관계 설정 메서드
+    public void assignUser(User user) {
+        this.user = user;
+        user.getParkingSpaceList().add(this);
     }
 
 }

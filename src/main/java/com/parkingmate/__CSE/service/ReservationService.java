@@ -15,6 +15,7 @@ public class ReservationService {
 
     @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
     private ParkRepository parkRepository;
 
     @Transactional
@@ -41,6 +42,10 @@ public class ReservationService {
                 reservationRequest.endTime()
         );
 
+
+        //관계 설정
+        //reservation.assignUserAndParkingSpace(user, parkingSpace);
+        System.out.println(reservation);
         //예약 저장
         return reservationRepository.save(reservation);
 

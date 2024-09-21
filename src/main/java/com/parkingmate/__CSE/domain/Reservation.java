@@ -31,11 +31,21 @@ public class Reservation {
     @Column(nullable = false)
     private String endTime;
 
-    public Reservation(User user, ParkingSpace parkingSpace, String data, String startTime, String endTime) {
+    public Reservation(User user, ParkingSpace parkingSpace, String date, String startTime, String endTime) {
         this.user = user;
         this.parkingSpace = parkingSpace;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
+    // 관계 설정 메서드
+    public void assignUserAndParkingSpace(User user, ParkingSpace parkingSpace) {
+        this.user = user;
+        this.parkingSpace = parkingSpace;
+
+        user.getReservationList().add(this);
+        parkingSpace.getReservationList().add(this);
+    }
+
 }
