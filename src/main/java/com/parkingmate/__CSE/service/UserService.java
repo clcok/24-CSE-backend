@@ -3,6 +3,7 @@ package com.parkingmate.__CSE.service;
 import com.parkingmate.__CSE.dto.auth.RegisterRequest;
 
 import com.parkingmate.__CSE.domain.User;
+import com.parkingmate.__CSE.dto.request.MoneyChargeRequest;
 import com.parkingmate.__CSE.dto.request.UserCarRequest;
 import com.parkingmate.__CSE.dto.response.MyPageResponse;
 import com.parkingmate.__CSE.repository.UserRepository;
@@ -58,4 +59,8 @@ public class UserService {
         );
     }
 
+    public void moneyCharge(MoneyChargeRequest moneyChargeRequest,User user){
+        user.setChargeAmount(user.getChargeAmount()+ moneyChargeRequest.getChargeAmount());
+        userRepository.save(user);
+    }
 }

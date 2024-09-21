@@ -3,12 +3,16 @@ package com.parkingmate.__CSE.service;
 import com.parkingmate.__CSE.domain.ParkingSpace;
 import com.parkingmate.__CSE.domain.Reservation;
 import com.parkingmate.__CSE.domain.User;
+import com.parkingmate.__CSE.dto.request.DeleteReservationRequest;
 import com.parkingmate.__CSE.dto.request.ReservationRequest;
+import com.parkingmate.__CSE.dto.response.ReservationResponse;
 import com.parkingmate.__CSE.repository.ParkRepository;
 import com.parkingmate.__CSE.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ReservationService {
@@ -52,5 +56,14 @@ public class ReservationService {
         //예약 저장
         return reservationRepository.save(reservation);
 
+    }
+
+    public List<ReservationResponse> loadReservation(User user){
+        List<Reservation> reservationList = reservationRepository.findByUserId(user.getId());
+        return reservationList.stream().map(ReservationResponse::from).toList();
+    }
+
+    public void returnParkingSpace(DeleteReservationRequest deleteReservationRequest){
+        reservationRepository.deleteById(deleteReservationRequest.getReservationId());
     }
 }

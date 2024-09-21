@@ -6,7 +6,7 @@ public record ReservationResponse(
         Long id,
         Long userId,
         Long parkingSpaceId,
-        String data,
+        String date,
         String startTime,
         String endTime
 ){

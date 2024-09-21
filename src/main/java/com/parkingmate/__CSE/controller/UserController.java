@@ -1,6 +1,7 @@
 package com.parkingmate.__CSE.controller;
 
 import com.parkingmate.__CSE.domain.User;
+import com.parkingmate.__CSE.dto.request.MoneyChargeRequest;
 import com.parkingmate.__CSE.dto.request.UserCarRequest;
 import com.parkingmate.__CSE.dto.response.MyPageResponse;
 import com.parkingmate.__CSE.service.UserService;
@@ -19,7 +20,6 @@ public class UserController {
     @GetMapping("/mypage")
     public MyPageResponse getCurrentUser(HttpSession session) {
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
         if (user == null) {
             throw new RuntimeException("로그인이 필요합니다.");
         }
@@ -42,5 +42,14 @@ public class UserController {
     @PostMapping("/car/enroll")
     public void carEnroll(@RequestBody UserCarRequest usercarRequest, HttpSession session){
         userService.carEnroll(usercarRequest, session);
+    }
+
+    @PostMapping("/moneycharge")
+    public void moneyCharge(@RequestBody MoneyChargeRequest moneyChargeRequest, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            throw new RuntimeException("로그인이 필요합니다.");
+        }
+        userService.moneyCharge(moneyChargeRequest,user);
     }
 }
