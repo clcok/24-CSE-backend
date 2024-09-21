@@ -47,7 +47,8 @@ public class ReservationService {
         parkingSpace.addUseCar();
 
         //관계 설정
-        reservation.assignUserAndParkingSpace(user, parkingSpace);
+        //reservation.assignUserAndParkingSpace(user, parkingSpace);
+
         //예약 저장
         return reservationRepository.save(reservation);
 
