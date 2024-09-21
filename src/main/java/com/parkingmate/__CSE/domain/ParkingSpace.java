@@ -51,6 +51,12 @@ public class ParkingSpace {
     @Column
     private String endTime; //예약 끝 시간
 
+    @Column
+    private Double latitude;
+
+    @Column
+    private Double longtitude;
+
     public ParkingSpace(User user, EnrollRequest enrollRequest){
         this.user = user;
         this.name = enrollRequest.getName();

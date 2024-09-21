@@ -59,7 +59,9 @@ public class ParkService {
                 space.getUseCar(),
                 space.getPrice(),
                 space.getExplain(),
-                space.getIsAvailable()
+                space.getIsAvailable(),
+                space.getLatitude(),
+                space.getLongtitude()
         );
     }
 }

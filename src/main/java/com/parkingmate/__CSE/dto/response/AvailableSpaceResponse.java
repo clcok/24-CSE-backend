@@ -12,8 +12,10 @@ public class AvailableSpaceResponse {
     private Integer price;
     private String explain;
     private Boolean isAvailable;
+    private Double latitude;
+    private Double longtitude;
 
-    public AvailableSpaceResponse(Long ParkingSpaceId, String ownerName, String parkingName, Integer maxCar, Integer useCar, Integer price, String explain, Boolean isAvailable){
+    public AvailableSpaceResponse(Long ParkingSpaceId, String ownerName, String parkingName, Integer maxCar, Integer useCar, Integer price, String explain, Boolean isAvailable, Double latitude, Double longtitude){
         this.ParkingSpaceId = ParkingSpaceId;
         this.ownerName = ownerName;
         this.parkingName = parkingName;
@@ -22,5 +24,7 @@ public class AvailableSpaceResponse {
         this.price = price;
         this.explain = explain;
         this.isAvailable = isAvailable;
+        this.latitude = latitude;
+        this.longtitude = longtitude;
     }
 }
