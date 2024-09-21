@@ -50,5 +50,4 @@ public class ParkingSpace {
         this.explain = enrollRequest.getExplain();
     }
 
-
 }

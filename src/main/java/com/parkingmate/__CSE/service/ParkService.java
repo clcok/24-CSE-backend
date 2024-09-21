@@ -18,6 +18,7 @@ public class ParkService {
     @Transactional
     public void enrollParkingSpace(EnrollRequest enrollRequest, HttpSession session){
         User user = (User) session.getAttribute("user");
-        user.enrollParkingSpace(enrollRequest);
+        ParkingSpace parkingSpace = new ParkingSpace(user, enrollRequest);
+        parkRepository.save(parkingSpace);
     }
 }

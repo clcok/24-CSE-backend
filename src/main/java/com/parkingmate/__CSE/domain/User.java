@@ -33,7 +33,7 @@ public class User {
     @Column(unique = true)
     private String car; //차량 번호
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @Column
     private List<ParkingSpace> parkingSpaceList = new ArrayList<>();
 
@@ -42,9 +42,5 @@ public class User {
         this.password = password;
         this.name = name;
         this.telephone = telephone;
-    }
-
-    public void enrollParkingSpace(EnrollRequest enrollRequest){
-        this.parkingSpaceList.add(new ParkingSpace(this, enrollRequest));
     }
 }
