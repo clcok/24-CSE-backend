@@ -26,6 +26,9 @@ public class ParkService {
 
     @Transactional
     public void enrollParkingSpace(EnrollRequest enrollRequest, HttpSession session){
+        if(enrollRequest.getName().isBlank()){
+            throw new RuntimeException("정보를 다시 입력해주세요.");
+        }
         User user = (User) session.getAttribute("user");
         ParkingSpace parkingSpace = new ParkingSpace(user, enrollRequest);
         parkRepository.save(parkingSpace);

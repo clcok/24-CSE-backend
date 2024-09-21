@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor
 @Getter
 @Entity
@@ -16,6 +19,9 @@ public class ParkingSpace {
     @JoinColumn(nullable = false, name="user_id")
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "parkingSpace", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations = new ArrayList<>();
 
     @Column(nullable = false)
     private String name; //주차장 이름
