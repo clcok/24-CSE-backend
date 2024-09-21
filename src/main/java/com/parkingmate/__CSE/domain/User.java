@@ -1,5 +1,6 @@
 package com.parkingmate.__CSE.domain;
 
+import com.parkingmate.__CSE.dto.request.EnrollRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,5 +42,9 @@ public class User {
         this.password = password;
         this.name = name;
         this.telephone = telephone;
+    }
+
+    public void enrollParkingSpace(EnrollRequest enrollRequest){
+        this.parkingSpaceList.add(new ParkingSpace(this, enrollRequest));
     }
 }

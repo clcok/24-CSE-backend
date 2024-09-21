@@ -1,5 +1,6 @@
 package com.parkingmate.__CSE.domain;
 
+import com.parkingmate.__CSE.dto.request.EnrollRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,4 +40,15 @@ public class ParkingSpace {
 
     @Column
     private String endTime; //예약 끝 시간
+
+    public ParkingSpace(User user, EnrollRequest enrollRequest){
+        this.user = user;
+        this.name = enrollRequest.getName();
+        this.address = enrollRequest.getAddress();
+        this.maxCar = enrollRequest.getMaxCar();
+        this.price = enrollRequest.getPrice();
+        this.explain = enrollRequest.getExplain();
+    }
+
+
 }
