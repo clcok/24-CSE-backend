@@ -55,7 +55,7 @@ public class ParkingSpace {
     private Double latitude;
 
     @Column
-    private Double longtitude;
+    private Double longitude;
 
     public ParkingSpace(User user, EnrollRequest enrollRequest){
         this.user = user;
@@ -84,5 +84,21 @@ public class ParkingSpace {
             isAvailable = false;
         }
         this.useCar++;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }
