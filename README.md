@@ -56,8 +56,15 @@
 - 디자인으로는 Figma 사용하였습니다.
 - 프론트엔드로는 Kotlin과 개발환경으로는 AndroidStudio를 사용하였습니다.
 - 백엔드로는 Java와 Spring 개발환경으로는 IntelliJ, 데이터베이스로는 h2-database를 사용하였습니다.
-- [!ERD자료](./pngsrc/ERD.png)
-- [!아키텍쳐구조](./pngsrc/SWArchitecture.png)
+#### [ERD]
+![ERD자료](./pngsrc/ERD.png)
+- 위 그림은 ERD 설계구조입니다.
+- User엔티티는 Reservation 및 ParkingSpace엔티티와 1:N관계를 이루며, ParkingSpace와 Reservation엔티티 또한 1:N관계를 이룹니다.
+#### [아키텍쳐 구조]
+![아키텍쳐구조](./pngsrc/SWArchitecture.png)
+- 위 그림은 아키텍쳐 구조를 설명하는 그림입니다.
+- 서버는 로컬호스트에서 스프링부트를 이용해 DB(h2-database)와 통신하고 ngrok를 이용해 외부 접속을 가능하게 합니다..
+- 앱은 유저와 상호작용하는 정보들을 ngrok를 통해 받은 url로 DB와 소통합니다.
 
 ## 향후 개선 혹은 발전 방안
 1. 아직 주차장 등록시 등록하는 사용자가 해당 건물 소유자인지 확인하는 과정이 없습니다.
