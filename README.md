@@ -56,6 +56,8 @@
 - 디자인으로는 Figma 사용하였습니다.
 - 프론트엔드로는 Kotlin과 개발환경으로는 AndroidStudio를 사용하였습니다.
 - 백엔드로는 Java와 Spring 개발환경으로는 IntelliJ, 데이터베이스로는 h2-database를 사용하였습니다.
+- [!ERD자료](./pngsrc/ERD.png)
+- [!아키텍쳐구조](./pngsrc/SWArchitecture.png)
 
 ## 향후 개선 혹은 발전 방안
 1. 아직 주차장 등록시 등록하는 사용자가 해당 건물 소유자인지 확인하는 과정이 없습니다.
