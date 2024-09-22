@@ -25,8 +25,7 @@
 - 정세엽 - 컴퓨터학부 21학번, 백엔드 및 배포 담당
 
 ## 시연 영상
-(필수) Youtube 링크
-(선택) Github Repository 페이지에서 바로 볼 수 있도록 넣어주셔도 좋습니다.
+[Youtube 링크](https://www.youtube.com/watch?v=6eT9GY9ushM)
 
 ## 서비스 소개
 ### 서비스 개요
